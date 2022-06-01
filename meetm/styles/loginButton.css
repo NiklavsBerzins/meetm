@@ -1,0 +1,25 @@
+.login-btn {
+    font-family: Roboto;
+    background: #8fd04e;
+    color: #1d1d1d;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    height: 56px;
+    border: 0;
+    transition: all 0.5s;
+    border-radius: 10px;
+    max-width: 280px;
+    min-width: 250px;
+    margin: auto;
+}
+.login-btn:hover {
+    background: #6d9e3b;
+    border-radius: 10px;
+    color: #fff;
+}
+.links {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
