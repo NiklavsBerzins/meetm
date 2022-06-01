@@ -1,23 +1,4 @@
-body {
-    height: 100vh;
-    font-family: Roboto;
-    -webkit-text-size-adjust: 100%;
-    -webkit-font-smoothing: antialiased;
-    display: flex;
-    font-size: 16px;
-    font-weight: 500;
-  }
 
-  .inputCont {
-    display:flex;
-    flex-direction: column;
-    height: 400px;
-    width: 400px;
-    margin: auto;
-  }
-
-  * {
-    box-sizing: border-box; }
   
   .inp {
     position: relative;
