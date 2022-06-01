@@ -5,17 +5,15 @@
     cursor: pointer;
     font-size: 20px;
     font-weight: bold;
-    height: 56px;
+    height: 46px;
     border: 0;
     transition: all 0.5s;
-    border-radius: 10px;
     max-width: 280px;
     min-width: 250px;
     margin: auto;
 }
 .login-btn:hover {
     background: #6d9e3b;
-    border-radius: 10px;
     color: #fff;
 }
 .links {
