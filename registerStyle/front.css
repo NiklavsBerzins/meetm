@@ -1,4 +1,4 @@
-.container {
+.container1 {
     width: 60%;
     margin: 70px;
 }
@@ -8,6 +8,21 @@
     padding: 10px;
     border-radius: 5px;
     display: flex;
+    cursor: default;
+    flex-wrap: wrap;
+    overflow-x: scroll;
+    max-width: 600px;
+}
+
+.about-container {
+    border: 2px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    cursor: default;
+    flex-wrap: wrap;
+    /* overflow-x: scroll; */
+    overflow-wrap: break-word;
 }
 
 .tag-container .tag {
@@ -18,11 +33,13 @@
     align-items: center;
     border-radius: 3px;
     background: #f2f2f2;
+    cursor: default;
 }
 
 .material-icons {
     font-size: 16px;
     margin-left: 5px;
+ 
 }
 
 .tag-container input {
@@ -31,4 +48,24 @@
     padding: 5px;
     outline: none;
     border: 0;
+}
+
+.about-container input {
+    border: 0;
+    outline: none;
+    flex: 1;
+    inline-size: 65px;
+    overflow-wrap: break-word;
+}
+
+.aboutText {
+    resize: none;
+    padding: 10px;
+    font-size: 16px;
+    width: 100%;
+    max-width: 600px;
+    min-height: 200px;
+    max-height: 300px;
+    overflow-x: scroll;
+  
 }

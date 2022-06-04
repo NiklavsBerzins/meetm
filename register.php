@@ -1,4 +1,6 @@
-<?php require_once('config.php') ?>
+<?php require_once('config.php');
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 
@@ -79,6 +81,7 @@
         }
     }
     if ($result and $error == 0) {
+        $_SESSION["username"] = $username;
         header("Location: register2.php");
     }
     ?>
@@ -111,7 +114,7 @@
                 <input class="form-control" type="password" name="password_2">
                 <span class="error"><?= $passwordError2; ?></span>
 
-                <input type="submit" name="create" value="Reģistrēties">
+                <input type="submit" name="create" value="Turpināt">
             </form>
         </div>
     </div>
