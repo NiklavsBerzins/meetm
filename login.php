@@ -12,7 +12,22 @@
     <?php
     $emailError = "";
     $passwordError = "";
-
+    $db = mysqli_connect('127.0.0.1', 'root', '', 'meetm');
+    if (isset($_POST['login'])) {
+        $email = $_POST['email'];
+        $user_check_query = "SELECT * FROM users WHERE email='$email'LIMIT 1";
+        $result = mysqli_query($db, $user_check_query);
+        $user = mysqli_fetch_assoc($result);
+        if ($user) {
+            if ($user['password'] == $_POST['password']) {
+                header("Location: main.html");
+            } else {
+                $passwordError = "Ievadiet pareizo paroli!";
+            }
+        } else {
+            $emailError = "Lietotājs ar šādu e-pastu nepastāv";
+        }
+    }
     ?>
     <div class="contBox">
         <div class="inputCont">
@@ -33,7 +48,7 @@
                     <span class="error"><?= $passwordError; ?></span>
                 </label>
 
-                <input type="submit" class="login-btn">Pieslēgties</button>
+                <input type="submit" name="login" class="login-btn" value="Login" />
                 <div class="links">
                     <a href="https://google.com">Aizmirsi paroli?</a>
                     <a href="http://localhost/meetm/register.html">Reģistrēties</a>
