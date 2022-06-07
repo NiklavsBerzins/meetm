@@ -63,6 +63,9 @@ session_start();
             if (empty($_POST['password_2'])) {
                 $error = 1;
                 $passwordError1 = "Ievadiet atkārtotu paroli!";
+            } elseif (strlen($_POST['password_1']) < 5) {
+                $error = 1;
+                $passwordError1 = "Parolei jābūt vismaz 6 simbolu garai!";
             } elseif ($password_1 != $password_2) {
                 $error = 1;
                 $passwordError2 = "Ievadiet atkārtoto paroli pareizi!";

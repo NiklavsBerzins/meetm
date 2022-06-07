@@ -1,6 +1,6 @@
 .container1 {
-    width: 60%;
-    margin: 70px;
+    width: 115%;
+    margin: 0px;
 }
 
 .tag-container {
@@ -9,7 +9,7 @@
     border-radius: 5px;
     display: flex;
     cursor: default;
-    flex-wrap: wrap;
+
     overflow-x: scroll;
     max-width: 600px;
 }
@@ -68,4 +68,7 @@
     max-height: 300px;
     overflow-x: scroll;
   
+}
+.interests {
+    margin-top:10px;
 }
