@@ -1,14 +1,14 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title> Autorizācija sistēmā </title>
+        <title> Reģistrācija sistēmā </title>
         <link href="./styles/textField.css" rel="stylesheet" type="text/css"/>
         <link href="./styles/button.css" rel="stylesheet" type="text/css"/>
         <link href="./styles/mainStyle.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <div class="contBox">
-            <div class="inputCont">
+            <div class="registerCont">
                 <img src="./images/GUI_14._grupa-removebg-preview.png" alt="logo"></img>
                 <label for="inp" class="inp">
                     <input type="email" id="email" required placeholder="&nbsp;">
@@ -17,15 +17,26 @@
                 </label>
                 
                 <label for="inp" class="inp">
-                    <input id="password" type="password" required placeholder="&nbsp;">
+                    <input id="password1" type="password" required placeholder="&nbsp;">
                     <span class="reqLabel">Parole</span>
                     <span class="focus-bg"></span>
                 </label>
 
-                <button class="login-btn">Pieslēgties</button>
+                <label for="inp" class="inp">
+                    <input id="password2" type="password" required placeholder="&nbsp;">
+                    <span class="reqLabel">Atkartotā parole</span>
+                    <span class="focus-bg"></span>
+                </label>
+
+                <label for="inp" class="inp">
+                    <input id="nickname" type="text" required placeholder="&nbsp;">
+                    <span class="reqLabel">Lietotājvārds</span>
+                    <span class="focus-bg"></span>
+                </label>
+
+                <input type="submit" name="create" class="login-btn" value="Turpināt">
                 <div class="links">
-                    <a href="https://google.com">Aizmirsi paroli?</a>
-                    <a href="http://localhost/meetm/register.html">Reģistrēties</a>
+                    <a href="http://localhost/meetm/login.html">Jau esi reģistrēts?</a>
                 </div>
             </div>
         </div>

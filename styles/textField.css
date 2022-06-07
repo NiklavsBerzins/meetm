@@ -29,7 +29,7 @@
     transform: scaleX(0);
     transform-origin: left;
   }
-  .inp input {
+  .inp input, textarea {
     -webkit-appearance: none;
     appearance: none;
     width: 100%;
@@ -44,24 +44,31 @@
     color: #000;
     transition: all .15s ease; 
   }
-  .inp input:hover {
+
+  textarea {
+    padding: 30px 12px 0 12px;
+    height: 90px;
+    overflow: auto;
+  }
+
+  .inp input:hover, textarea:hover {
     background: rgba(0, 0, 0, 0.04);
     box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.5); 
   }
-  .inp input:not(:placeholder-shown) + .reqLabel, .inp input:not(:placeholder-shown) + .label {
+  .inp input:not(:placeholder-shown) + .reqLabel, .inp input:not(:placeholder-shown) + .label, textarea:not(:placeholder-shown) + .label {
     color: rgba(0, 0, 0, 0.5);
     transform: translate3d(0, -12px, 0) scale(0.75); 
   }
-  .inp input:focus {
+  .inp input:focus, textarea:focus {
     background: rgba(143, 208, 78, 0.05);
     outline: none;
     box-shadow: inset 0 -2px 0 rgb(143, 208, 78); 
   }
-  .inp input:focus + .reqLabel, .inp input:focus + .Label {
+  .inp input:focus + .reqLabel, .inp input:focus + .Label, textarea:focus + .Label {
     color: #000000;
     transform: translate3d(0, -12px, 0) scale(0.75); 
   }
-  .inp input:focus + .reqLabel + .focus-bg, .inp input:focus + .label + .focus-bg {
+  .inp input:focus + .reqLabel + .focus-bg, .inp input:focus + .label + .focus-bg, textarea:focus + .label + .focus-bg {
     transform: scaleX(1);
     transition: all .1s ease; 
   }
