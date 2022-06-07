@@ -10,6 +10,7 @@
 
 <body>
     <?php
+    session_start();
     $emailError = "";
     $passwordError = "";
     $db = mysqli_connect('127.0.0.1', 'root', '', 'meetm');
@@ -20,7 +21,8 @@
         $user = mysqli_fetch_assoc($result);
         if ($user) {
             if ($user['password'] == $_POST['password']) {
-                header("Location: main.html");
+                $_SESSION['username'] = $user['username'];
+                header("Location: main.php");
             } else {
                 $passwordError = "Ievadiet pareizo paroli!";
             }
@@ -29,6 +31,7 @@
         }
     }
     ?>
+
     <div class="contBox">
         <div class="inputCont">
             <form method="post">
@@ -57,5 +60,6 @@
         </div>
     </div>
 </body>
+
 
 </html>
