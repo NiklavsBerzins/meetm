@@ -10,10 +10,10 @@ body {
     font-weight: 500;
     background-color: #6d9e3b;
     min-height: 100vh;
-    display:grid;
+    display: grid;
   }
 
-.inputCont, .registerCont {
+.inputCont {
     height: 500px;
     width: 500px;
     margin: auto;
@@ -28,7 +28,15 @@ body {
      height: 600px;
  }
 .registerCont {
-    height: 600px;
+    min-height: 600px;
+    max-height: 700px;
+    width: 500px;
+    margin: auto;
+    padding: 50px;
+    background-color: white;
+    box-shadow: 0px 0px 20px 5px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
 }
 
 .contBox {
@@ -36,8 +44,8 @@ body {
     position: relative;
     margin: 10px;
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+    flex-direction: column;
+    justify-content: space-evenly;
     align-items: center;
 }
 
