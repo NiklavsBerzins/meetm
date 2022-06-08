@@ -1,3 +1,8 @@
+<?php
+session_start();
+$nick = $_SESSION['username'];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -45,12 +50,12 @@
     </style>
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#"><i class="fa fa-home" style="font-size: 52px"></i></a>
-            <a class="navbar-brand" href="#"><img class="img-logo" src="./images/GUI_14._grupa-removebg-preview.png" alt="logo"></img></a>
+            <a class="navbar-brand" href="main.php"><i class="fa fa-home" style="font-size: 52px"></i></a>
+            <a class="navbar-brand" href="main.php"><img class="img-logo" src="./images/GUI_14._grupa-removebg-preview.png" alt="logo"></img></a>
             <ul class="list-unstyled ml-4">
-                <li><img src="images/userIcon.png" class="img-thumbnail rounded-circle mx-auto d-block" style="width: 30%"></li>
+                <li> <a href="user_change.php"> <img src="images/userIcon.png" class="img-thumbnail rounded-circle mx-auto d-block" style="width: 30%"> </a> </li>
                 <li>
-                    <p class="font-weight-bold font-italic text-center d-block">Pikachu</p>
+                    <p class="font-weight-bold font-italic text-center d-block"><?php echo $nick; ?></p>
                 </li>
                 <li><a class="font-weight-bold text-center text-success d-block" href="#">Iziet</a></li>
             </ul>
