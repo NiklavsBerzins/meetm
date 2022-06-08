@@ -22,7 +22,6 @@
         $user = mysqli_fetch_assoc($result);
 
         $userID = $user['id'];
-        print_r($userID);
         $user_check_query = "SELECT * FROM user_data WHERE user_id='$userID' LIMIT 1";
         $result1 = mysqli_query($db, $user_check_query);
         $user1 = mysqli_fetch_assoc($result1);
@@ -30,7 +29,11 @@
         $date = $user1['date'];
         $gender = $user1['gender'];
         $interests = $user1['interests'];
-        print_r($interests);
+        $interestArray = explode(" -", $interests);
+        $interestArray = array_filter($interestArray);
+        $interestSize = sizeof($interestArray);
+
+        $x = 0;
     }
     ?>
 
@@ -65,11 +68,16 @@
                 </div>
                 <div class="form-group">
                     <label class="font-weight-bold" for="exampleInputEmail1">Intereses</label>
-                    <input type="text" class="form-control mb-2" id="interestName">
+                    <input type="text" class="form-control mb-2" id="interestName" readonly value="<?php foreach ($interestArray as $value) {
+                                                                                                        if ($x == ($interestSize - 1))   echo $value;
+                                                                                                        else {
+                                                                                                            echo $value . ', ';
+                                                                                                        }
+                                                                                                        $x++;
+                                                                                                    } ?>">
                     <div class="border border-dark rounded p-2" id="interestsSection">
 
                     </div>
-                    <button type="button" class="btn btn-success mt-2" id="addInterest">Saglabāt</button>
                 </div>
             </div>
             <div class="col-4">
