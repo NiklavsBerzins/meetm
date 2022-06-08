@@ -9,6 +9,9 @@
 </head>
 
 <body>
+    <div class="contBox">
+            <form method="post">
+        <div class="inputCont">
     <?php
     session_start();
     $emailError = "";
@@ -32,9 +35,6 @@
     }
     ?>
 
-    <div class="contBox">
-        <div class="inputCont">
-            <form method="post">
                 <img src="./images/GUI_14._grupa-removebg-preview.png" alt="logo"></img>
 
                 <label for="inp" class="inp">
@@ -56,8 +56,8 @@
                     <a href="https://google.com">Aizmirsi paroli?</a>
                     <a href="http://localhost/meetm/register.html">Reģistrēties</a>
                 </div>
-            </form>
         </div>
+            </form>
     </div>
 </body>
 
