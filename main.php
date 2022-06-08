@@ -61,7 +61,7 @@
             <div class="rightSide">
                 <div class="inputCont">
                     <div class="profileComb">
-                        <a href="page3.html"><img src="images/userIcon.png" class="profileIcon"></a>
+                        <a href="user_change.php"><img src="images/userIcon.png" class="profileIcon"></a>
                         <br>
                         <div class="userName"><?php echo"$username"; ?></div>
                         <div class="links">
@@ -82,10 +82,48 @@
                         ?>
 
                         <?php
+                        $result = $db->query("SELECT * FROM users");
+                        $rowcount= mysqli_num_rows($result);
+//                         echo"$rowcount";
 
 
-                        if($resultJOIN->num_rows > 0){
+                        if($rowcount < 5){
+                            $x = ($resultJOIN->num_rows);
+                        for ($i = 1 ;  $rowcount >= $i ; $i++) {
+                        $rows = $resultJOIN->fetch_assoc();
 
+                        $user_id = $rows['username'];
+                        $rating = $rows['rating'];
+
+
+                        ?>
+
+                        <div class="d-flex justify-content-center">
+                            <div class="bd-highlight mb-3">
+                                <div class="d-flex flex-row bd-highlight mb-3">
+                                    <div class="p-2 bd-highlight">
+                                        <div class="flex-column bd-highlight mb-3">
+                                            <div class="p-2 bd-highlight"><img src="images/userIcon.png" class="img-fluid rounded" style="width: 50%"></div>
+                                            <div class="p-2 bd-highlight"> <?php echo"$user_id" ?> </div>
+                                        </div>
+                                    </div>
+                                    <div class="p-2 bd-highlight">
+                                        <div class="flex-column bd-highlight mb-3">
+                                            <div class="p-2 bd-highlight"><i class="fa fa-star" style="font-size:24px;"></i></div>
+                                            <div class="p-2 bd-highlight" style="font-size: 12;"><strong class="text-success">Stars <?php echo"$rating" ?>/5 </strong></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <?php
+
+                        };
+
+
+
+                        } else {
 
                                 for ($x = 0; $x <= 5; $x++) {
                                     $rows = $resultJOIN->fetch_assoc();
@@ -119,6 +157,7 @@
 
                             };
                         };
+
                         ?>
 
 
