@@ -25,6 +25,7 @@ session_start() ?>
         $user_ID_query = "SELECT * FROM users WHERE username='$username'LIMIT 1";
         $result = mysqli_query($db, $user_ID_query);
         $user = mysqli_fetch_assoc($result);
+        $_SESSION['username'] = $username;
         $userID = $user['id'];
         $user_tags = $_POST['tags'];
         $user_about = $_POST['about'];
@@ -43,11 +44,13 @@ session_start() ?>
         $user_data_insertion = "INSERT INTO user_data (user_id, rating, interests, about, date, gender)
         VALUES ($userID, 0, '$user_tags', '$user_about', '$user_date', '$user_gender')";
         mysqli_query($db, $user_data_insertion);
-        header("Location: main.html");
+        header("Location: main.php");
     } ?>
 
-    <?php print_r($_POST);
-    print_r($_SESSION['username']) ?>
+<!--    --><?php //print_r($_POST);
+//    print_r($_SESSION['username']) ?>
+
+
         <div class="inputCont" style="width: 750px;" id="register2">
             <img src="./images/GUI_14._grupa-removebg-preview.png" alt="logo"></img>
                 <!-- <label for="inp" class="inp"> -->
