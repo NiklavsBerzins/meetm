@@ -13,7 +13,6 @@
             <?php
             session_start();
             $username = $_SESSION['username'];
-            echo"$username"
             ?>
             
             <div class="contBoxMain">
@@ -63,7 +62,8 @@
                 <div class="inputCont">
                     <div class="profileComb">
                         <a href="page3.html"><img src="images/userIcon.png" class="profileIcon"></a>
-                        <div class="userName"><?php $username?></div>
+                        <br>
+                        <div class="userName"><?php echo"$username"; ?></div>
                         <div class="links">
                             <a href="./login.php">Iziet</a>
                         </div>
