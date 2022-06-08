@@ -54,7 +54,7 @@
                 <input type="submit" name="login" class="login-btn" value="Login" />
                 <div class="links">
                     <a href="https://google.com">Aizmirsi paroli?</a>
-                    <a href="http://localhost/meetm/register.html">Reģistrēties</a>
+                    <a href="./register.php">Reģistrēties</a>
                 </div>
         </div>
             </form>

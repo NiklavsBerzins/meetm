@@ -39,7 +39,7 @@ body {
     flex-direction: column;
 }
 
-.contBox {
+.contBox, .contBoxMain {
     background-color: rgb(239, 239, 239);
     position: relative;
     margin: 10px;
@@ -49,3 +49,13 @@ body {
     align-items: center;
 }
 
+.contBoxMain {
+    background-color: rgb(239, 239, 239);
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
