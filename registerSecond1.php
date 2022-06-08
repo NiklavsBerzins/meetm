@@ -43,13 +43,11 @@ session_start() ?>
                 $user_data_insertion = "INSERT INTO user_data (user_id, rating, interests, about, date, gender)
         VALUES ($userID, 0, '$user_tags', '$user_about', '$user_date', '$user_gender')";
                 mysqli_query($db, $user_data_insertion);
-                header("Location: main.php");
+                header("Location: main.html");
             } ?>
 
             <?php print_r($_POST);
             print_r($_SESSION['username']) ?>
-
-
             <div class="inputCont" style="width: 750px;" id="register2">
                 <img src="./images/GUI_14._grupa-removebg-preview.png" alt="logo"></img>
                 <!-- <label for="inp" class="inp"> -->
@@ -81,6 +79,7 @@ session_start() ?>
                     <span class="label">Dzimšanas diena</span>
                     <span class="focus-bg"></span>
                 </label>
+
                 <div class="wrapper">
                     <input type="radio" value="1" name="select" id="option-1" checked>
                     <input type="radio" value="2" name="select" id="option-2">

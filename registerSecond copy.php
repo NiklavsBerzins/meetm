@@ -5,75 +5,87 @@ session_start() ?>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title> MeetM </title>
+    <link href="./styles/textField.css" rel="stylesheet" type="text/css" />
+    <link href="./styles/mainPage.css" rel="stylesheet" type="text/css" />
+    <link href="./styles/radiobutton.css" rel="stylesheet" type="text/css" />
+    <link href="./styles/button.css" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="registerStyle/front.css">
+    <link href="./styles/mainStyle.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
+    <div class="contBox">
+        <?php if (isset($_POST['create'])) {
+            $username = $_SESSION['username'];
+            $db = mysqli_connect('127.0.0.1', 'root', '', 'meetm');
+            $user_ID_query = "SELECT * FROM users WHERE username='$username'LIMIT 1";
+            $result = mysqli_query($db, $user_ID_query);
+            $user = mysqli_fetch_assoc($result);
+            $userID = $user['id'];
+            $user_tags = $_POST['tags'];
+            $user_about = $_POST['about'];
+            $user_gender = '';
+            if ($_POST['select'] == 1) {
+                $user_gender = "Vīrietis";
+            } elseif ($_POST['select'] == 2) {
+                $user_gender = "Sieviete";
+            }
+            $user_date = $_POST['date'];
 
-    <?php if (isset($_POST['create'])) {
-        $username = $_SESSION['username'];
-        $db = mysqli_connect('127.0.0.1', 'root', '', 'meetm');
-        $user_ID_query = "SELECT * FROM users WHERE username='$username'LIMIT 1";
-        $result = mysqli_query($db, $user_ID_query);
-        $user = mysqli_fetch_assoc($result);
-        $userID = $user['id'];
-        $user_tags = $_POST['tags'];
-        $user_about = $_POST['about'];
-        $user_gender = '';
-        if ($_POST['radio'] == 1) {
-            $user_gender = "Vīrietis";
-        } elseif ($_POST['radio'] == 2) {
-            $user_gender = "Sieviete";
-        }
-        $user_date = $_POST['date'];
-
-        // $query = "insert into user_data (user_id, rating, interests, about, date, gender) values ($userID, 0,'$user_tags', '$user_about', '$user_gender')";
-        // $stmtinsert = $db->prepare($query);
-        // $insert_result = $stmtinsert->execute();
-        echo $userID;
-        $user_data_insertion = "INSERT INTO user_data (user_id, rating, interests, about, date, gender)
+            // $query = "insert into user_data (user_id, rating, interests, about, date, gender) values ($userID, 0,'$user_tags', '$user_about', '$user_gender')";
+            // $stmtinsert = $db->prepare($query);
+            // $insert_result = $stmtinsert->execute();
+            echo $userID;
+            $user_data_insertion = "INSERT INTO user_data (user_id, rating, interests, about, date, gender)
         VALUES ($userID, 0, '$user_tags', '$user_about', '$user_date', '$user_gender')";
-        mysqli_query($db, $user_data_insertion);
-    } ?>
+            mysqli_query($db, $user_data_insertion);
+        } ?>
 
-    <?php print_r($_POST);
-    print_r($_SESSION['username']) ?>
-    <form method="post" onsubmit="inputTags()">
-        <div class="container1">
-            <h1>Intereses</h1>
-            <div class="tag-container">
-                <input />
-            </div>
-        </div>
-        <div class="invInput"></div>
-        <div class="container1">
-            <h1>Par sevi</h1>
-            <textarea name="about" class="aboutText"></textarea>
-        </div>
-        <div class="container1">
-            <h1>Dzimšanas diena</h1>
-            <input name="date" type="date">
-        </div>
-        <div class="container1">
-            <h1>Dzimums</h1>
-            <div class="gender">
-                <label for="1">Vīrietis
-                    <input type="radio" checked="checked" name="radio" value="1">
-                    <span class="checkmark"></span>
+        <?php print_r($_POST);
+        print_r($_SESSION['username']) ?>
+        <form method="post" onsubmit="inputTags()">
+            <div class="inputCont" style="width: 750px;" id="register2">
+                <img src="./images/GUI_14._grupa-removebg-preview.png" alt="logo"></img>
+                <div class="container1">
+                    <h3 class="interests">Intereses</h3>
+                    <div class="tag-container">
+                        <input />
+                    </div>
+                </div>
+                <div class="invInput"></div>
+
+                <label for="inp" class="inp">
+                    <textarea name="about" id="username" rows="4" placeholder="&nbsp;"></textarea>
+                    <span class="label">Par sevi</span>
+                    <span class="focus-bg"></span>
                 </label>
-                <label for="2">Sieviete
-                    <input type="radio" checked="checked" name="radio" value="2">
-                    <span class="checkmark"></span>
+
+                <label for="inp" class="inp">
+                    <input name="date" type="date" id="calendar" value="" placeholder="&nbsp;">
+                    <span class="label">Dzimšanas diena</span>
+                    <span class="focus-bg"></span>
                 </label>
+
+                <div class="wrapper">
+                    <input type="radio" value="1" name="select" id="option-1" checked>
+                    <input type="radio" value="2" name="select" id="option-2">
+                    <label for="option-1" class="option option-1">
+                        <div class="dot"></div>
+                        <span>Sieviete</span>
+                    </label>
+                    <label for="option-2" class="option option-2">
+                        <div class="dot"></div>
+                        <span>Vīrietis</span>
+                    </label>
+                </div>
+
+                <input type="submit" class="login-btn" id="register2Submit" name="create" value="Reģistrēties" />
             </div>
-        </div>
-        <input type="submit" id="register2Submit" name="create" value="Reģistrēties" />
-    </form>
+        </form>
+    </div>
 
 </body>
 <script>
