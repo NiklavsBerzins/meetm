@@ -90,7 +90,7 @@
                 </form>
             </div>
             <div class="col-3">
-                <h3 class="text-center">Tavs avatārs</h3>
+                <h3 class="text-center">Lietotāja avatārs</h3>
                 <img src="images/userIcon.png" class="img-thumbnail rounded mx-auto d-block">
             </div>
         </div>
