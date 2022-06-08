@@ -27,8 +27,6 @@
     </nav>
 </div>
 
-
-
 <div class="container">
     <div class="row">
         <div class="col-12 text-left">
@@ -36,91 +34,4 @@
         </div>
 
     </div>
-</div>
 
-
-
-
-    <?php
-    $db = mysqli_connect('127.0.0.1', 'root', '', 'meetm');
-    $resultJOIN = $db->query
-    ("SELECT users.id, users.username, user_data.user_id, user_data.rating
-            FROM users,user_data WHERE users.id=user_data.user_id
-            ORDER BY user_data.rating DESC");
-
-    ?>
-
-    <?php
-
-
-    if($resultJOIN->num_rows > 0){
-
-    $i = 1;
-
-    while($rows = $resultJOIN->fetch_assoc()){
-    if ($i = 3) {
-        ?>   <br>  <?php
-    }
-
-    $user_id = $rows['username'];
-    $rating = $rows['rating'];
-
-
-    ?>
-
-    <div class="d-flex justify-content-center">
-        <div class="bd-highlight mb-3">
-            <div class="d-flex flex-row bd-highlight mb-3">
-                <div class="p-2 bd-highlight">
-                    <div class="flex-column bd-highlight mb-3">
-                        <div class="p-2 bd-highlight"><i class="fa fa-star" style="font-size:24px;"></i></div>
-                        <div class="p-2 bd-highlight" style="font-size: 12;"><strong class="text-success"><?php echo"$rating" ?> </strong></div>
-                    </div>
-                </div>
-                <div class="p-2 bd-highlight">
-                    <div class="flex-column bd-highlight mb-3">
-                        <div class="p-2 bd-highlight"><img src="images/userIcon.png" class="img-fluid rounded" style="width: 50%"></div>
-                        <div class="p-2 bd-highlight"> <?php echo"$user_id" ?> </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-
-        <?php
-
-        };
-        };
-        ?>
-
-
-
-
-        <footer class="footer bg-light">
-            <div class="row">
-                <div class="col-4">
-                    <a href="#" class="text-success float-left"><i class="fa fa-arrow-left"></i></a>
-                </div>
-                <div class="col-4">
-                    <nav aria-label="Page navigation">
-                        <ul class="pagination pagination-circle pg-blue">
-                            <li class="mr-4 page-item active">1</li>
-                            <li class="mr-4 page-item">2</li>
-                            <li class="mr-4 page-item">3</li>
-                            <li class="mr-4 page-item disabled">...</li>
-                            <li class="mr-4 page-item">100</li>
-                        </ul>
-                    </nav>
-                </div>
-                <div class="col-4">
-                    <a href="#" class="text-success float-right"><i class="fa fa-arrow-right"></i></a>
-                </div>
-            </div>
-        </footer>
-
-
-
-
-</html>
