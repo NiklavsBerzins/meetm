@@ -71,6 +71,57 @@
                 </div>
                 <div class="inputCont">
                     <div class="markedUsers">
+
+                        <?php
+                        $db = mysqli_connect('127.0.0.1', 'root', '', 'meetm');
+                        $resultJOIN = $db->query
+                        ("SELECT users.id, users.username, user_data.user_id, user_data.rating
+            FROM users,user_data WHERE users.id=user_data.user_id
+            ORDER BY user_data.rating DESC");
+
+                        ?>
+
+                        <?php
+
+
+                        if($resultJOIN->num_rows > 0){
+
+
+                                for ($x = 0; $x <= 5; $x++) {
+                                    $rows = $resultJOIN->fetch_assoc();
+
+                                $user_id = $rows['username'];
+                                $rating = $rows['rating'];
+
+
+                                ?>
+
+                                <div class="d-flex justify-content-center">
+                                    <div class="bd-highlight mb-3">
+                                        <div class="d-flex flex-row bd-highlight mb-3">
+                                            <div class="p-2 bd-highlight">
+                                                <div class="flex-column bd-highlight mb-3">
+                                                    <div class="p-2 bd-highlight"><img src="images/userIcon.png" class="img-fluid rounded" style="width: 50%"></div>
+                                                    <div class="p-2 bd-highlight"> <?php echo"$user_id" ?> </div>
+                                                </div>
+                                            </div>
+                                            <div class="p-2 bd-highlight">
+                                                <div class="flex-column bd-highlight mb-3">
+                                                    <div class="p-2 bd-highlight"><i class="fa fa-star" style="font-size:24px;"></i></div>
+                                                    <div class="p-2 bd-highlight" style="font-size: 12;"><strong class="text-success">Stars <?php echo"$rating" ?>/5 </strong></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <?php
+
+                            };
+                        };
+                        ?>
+
+
                     </div>
                 </div>
             </div>
