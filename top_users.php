@@ -1,5 +1,10 @@
-<html>
+<?php
+session_start();
+$username = $_SESSION['username'];
+?>
 
+
+<html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title> TOP lietotāji </title>
@@ -18,13 +23,13 @@
 
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="page1.html"><i class="fa fa-home" style="font-size: 52px"></i></a>
-            <a class="navbar-brand" href="page1.html"><img class="img-logo" src="./images/GUI_14._grupa-removebg-preview.png" alt="logo"></img></a>
+            <a class="navbar-brand" href="main.php"><i class="fa fa-home" style="font-size: 52px"></i></a>
+            <a class="navbar-brand" href="main.php"><img class="img-logo" src="./images/GUI_14._grupa-removebg-preview.png" alt="logo"></img></a>
 
             <ul class="list-unstyled ml-4">
-                <li><a href="page3.html"><img src="images/userIcon.png" class="img-thumbnail rounded-circle mx-auto d-block" style="width: 30%"></a></li>
+                <li><a href="user_change.php"><img src="images/userIcon.png" class="img-thumbnail rounded-circle mx-auto d-block" style="width: 30%"></a></li>
                 <li>
-                    <p class="font-weight-bold font-italic text-center d-block">Pikachu</p>
+                    <p class="font-weight-bold font-italic text-center d-block"><?php echo"$username"; ?></p>
                 </li>
                 <li><a class="font-weight-bold text-center text-success d-block" href="#">Iziet</a></li>
             </ul>
