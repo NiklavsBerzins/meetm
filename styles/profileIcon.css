@@ -1,0 +1,17 @@
+.profileIcon {
+    border-radius: 50%;
+    width: 140px;
+}
+
+.userName {
+    text-align: center;
+    font-style: italic;
+    font-weight: bold;
+    color: #6d9e3b;
+}
+
+.profileComb {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

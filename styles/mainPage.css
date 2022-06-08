@@ -33,7 +33,7 @@ img {
 }
 
 .rightSide .inputCont:nth-child(2) {
-    height: 750px;
+    min-height: 500px;
 }
 
 .genderAge {

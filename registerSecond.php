@@ -42,6 +42,7 @@ session_start() ?>
                 echo $userID;
                 $user_data_insertion = "INSERT INTO user_data (user_id, rating, interests, about, date, gender)
         VALUES ($userID, 0, '$user_tags', '$user_about', '$user_date', '$user_gender')";
+<<<<<<< HEAD
                 mysqli_query($db, $user_data_insertion);
                 header("Location: main.php");
             } ?>
@@ -52,6 +53,18 @@ session_start() ?>
 
             <div class="inputCont" style="width: 750px;" id="register2">
                 <img src="./images/GUI_14._grupa-removebg-preview.png" alt="logo"></img>
+=======
+        mysqli_query($db, $user_data_insertion);
+        header("Location: main.php");
+    } ?>
+
+    <?php print_r($_POST);
+    print_r($_SESSION['username']) ?>
+
+
+        <div class="inputCont" style="width: 750px;" id="register2">
+            <img src="./images/GUI_14._grupa-removebg-preview.png" alt="logo"></img>
+>>>>>>> cfaf69612838490dec1bb9984abdc78c3712124d
                 <!-- <label for="inp" class="inp"> -->
 
 
