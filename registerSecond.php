@@ -7,17 +7,15 @@ session_start() ?>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title> MeetM </title>
     <link href="./styles/textField.css" rel="stylesheet" type="text/css" />
+    <link href="./styles/mainStyle.css" rel="stylesheet" type="text/css" />
     <link href="./styles/mainPage.css" rel="stylesheet" type="text/css" />
     <link href="./styles/radiobutton.css" rel="stylesheet" type="text/css" />
     <link href="./styles/button.css" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="registerStyle/front.css">
-    <link href="./styles/mainStyle.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
-    <div class="contBox">
-            <form method="post" onsubmit="inputTags()">
 
     <?php if (isset($_POST['create'])) {
         $username = $_SESSION['username'];
@@ -25,7 +23,6 @@ session_start() ?>
         $user_ID_query = "SELECT * FROM users WHERE username='$username'LIMIT 1";
         $result = mysqli_query($db, $user_ID_query);
         $user = mysqli_fetch_assoc($result);
-        $_SESSION['username'] = $username;
         $userID = $user['id'];
         $user_tags = $_POST['tags'];
         $user_about = $_POST['about'];
@@ -44,32 +41,23 @@ session_start() ?>
         $user_data_insertion = "INSERT INTO user_data (user_id, rating, interests, about, date, gender)
         VALUES ($userID, 0, '$user_tags', '$user_about', '$user_date', '$user_gender')";
         mysqli_query($db, $user_data_insertion);
-        header("Location: main.php");
+        header("Location: main.html");
     } ?>
 
-<!--    --><?php //print_r($_POST);
-//    print_r($_SESSION['username']) ?>
-
-
+    <?php print_r($_POST);
+    print_r($_SESSION['username']) ?>
+    <div class="contBox">
         <div class="inputCont" style="width: 750px;" id="register2">
             <img src="./images/GUI_14._grupa-removebg-preview.png" alt="logo"></img>
+            <form method="post" onsubmit="inputTags()">
                 <!-- <label for="inp" class="inp"> -->
-
-                
-                <!-- <label for="inp" class="inp">
-                    <div class="tag-container">
-                        <input />
-                    </div>
-                    <span class="label">Intereses</span>
-                    <span class="focus-bg"></span>
-                </label> -->
-
                 <div class="container1">
                     <h3 class="interests">Intereses</h3>
                     <div class="tag-container">
                         <input />
                     </div>
                 </div>
+                <div class="invInput"></div>
                 <!-- </label> -->
                 <label for="inp" class="inp">
                     <textarea name="about" id="username" rows="4" placeholder="&nbsp;"></textarea>
@@ -95,9 +83,9 @@ session_start() ?>
                     </label>
                 </div>
                 <input type="submit" class="login-btn" id="register2Submit" name="create" value="Reģistrēties" />
-       
-        </div> </form>
-    </div>    
+            </form>
+        </div>
+    </div>
 </body>
 <script>
     const tagContainer = document.querySelector('.tag-container');
