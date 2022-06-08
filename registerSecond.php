@@ -35,9 +35,6 @@ session_start() ?>
             }
             $user_date = $_POST['date'];
 
-            // $query = "insert into user_data (user_id, rating, interests, about, date, gender) values ($userID, 0,'$user_tags', '$user_about', '$user_gender')";
-            // $stmtinsert = $db->prepare($query);
-            // $insert_result = $stmtinsert->execute();
             echo $userID;
             $user_data_insertion = "INSERT INTO user_data (user_id, rating, interests, about, date, gender)
         VALUES ($userID, 0, '$user_tags', '$user_about', '$user_date', '$user_gender')";
@@ -148,7 +145,8 @@ session_start() ?>
             if (e.key === " ") {
                 // const tag = createTag(input.value);
                 // tagContainer.prepend(tag);
-                tags.push(input.value)
+                theTag = input.value.trim();
+                tags.push(theTag);
                 addTags();
                 console.log(tags);
                 input.value = '';
