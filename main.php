@@ -71,7 +71,6 @@
                 </div>
                 <div class="inputCont">
                     <div class="markedUsers">
-                        Atzmimetie
                     </div>
                 </div>
             </div>
