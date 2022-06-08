@@ -3,11 +3,12 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title> MeetM </title>
         <link href="./styles/textField.css" rel="stylesheet" type="text/css"/>
-        <link href="./styles/loginButton.css" rel="stylesheet" type="text/css"/>
         <link href="./styles/mainStyle.css" rel="stylesheet" type="text/css"/>
         <link href="./styles/mainPage.css" rel="stylesheet" type="text/css"/>
         <link href="./styles/profileIcon.css" rel="stylesheet" type="text/css"/>
-    </head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="./styles/button.css" rel="stylesheet" type="text/css"/>
+        </head>
     <body>
         <div class="contBox">
             <?php
@@ -53,9 +54,11 @@
                             </label>
 
                         </div>
-                            <div>
-                                Saraksts
-                            </div>
+                        <input type="submit" name="create" class="login-btn" value="Meklēt" style="margin: 5px;">
+                        <div>
+
+                        Saraksts
+                        </div>
                     </div>
                 </div>
             <div class="rightSide">
@@ -70,8 +73,8 @@
                     </div>
                 </div>
                 <div class="inputCont">
+                <div class="userName">Atzīmētie lietotāji</div> 
                     <div class="markedUsers">
-
                         <?php
                         $db = mysqli_connect('127.0.0.1', 'root', '', 'meetm');
                         $resultJOIN = $db->query
@@ -98,24 +101,12 @@
 
                         ?>
 
-                        <div class="d-flex justify-content-center">
-                            <div class="bd-highlight mb-3">
-                                <div class="d-flex flex-row bd-highlight mb-3">
-                                    <div class="p-2 bd-highlight">
-                                        <div class="flex-column bd-highlight mb-3">
-                                            <div class="p-2 bd-highlight"><img src="images/userIcon.png" class="img-fluid rounded" style="width: 50%"></div>
-                                            <div class="p-2 bd-highlight"> <?php echo"$user_id" ?> </div>
-                                        </div>
-                                    </div>
-                                    <div class="p-2 bd-highlight">
-                                        <div class="flex-column bd-highlight mb-3">
-                                            <div class="p-2 bd-highlight"><i class="fa fa-star" style="font-size:24px;"></i></div>
-                                            <div class="p-2 bd-highlight" style="font-size: 12;"><strong class="text-success">Stars <?php echo"$rating" ?>/5 </strong></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <a href="./top_users.php"><img src="images/userIcon.png" class="profileIcon" style="width: 80px;"></a>
+                        <div class="p-2 bd-highlight"> <?php echo"$user_id" ?> </div>
+                        <div class="rating">
+                            <div class="p-2 bd-highlight"><i class="fa fa-star" style="font-size:24px;"></i></div>
+                            <strong class="text-success">Stars <?php echo"$rating" ?>/5 </strong>
+                        </div>          
 
                         <?php
 
