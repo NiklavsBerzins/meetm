@@ -1,7 +1,6 @@
 <?php
 session_start();
 $nick = $_SESSION['username'];
-
 ?>
 
 <!DOCTYPE html>
@@ -23,6 +22,7 @@ $nick = $_SESSION['username'];
 <body>
     <?php
     if (isset($_GET['see'])) {
+        $getV = $_GET['see'];
         $db = mysqli_connect('127.0.0.1', 'root', '', 'meetm');
         $username = $_GET['see'];
         $username = substr_replace($username, "", -1);
@@ -112,7 +112,6 @@ $nick = $_SESSION['username'];
 
 
 
-
                         <div class="center">
                             <div class="stars">
                                 <input type="radio" id="five" name="rate" value="5">
@@ -129,7 +128,6 @@ $nick = $_SESSION['username'];
                                 <button type="submit" name="submit">Rate</button>
                             </div>
                         </div>
-
 
 
                     </div>
@@ -183,6 +181,7 @@ $nick = $_SESSION['username'];
 
 
 <?php
+if(isset($_REQUEST['submit'])){
 $userID = $_REQUEST['user_id'];
 $rating = $_REQUEST['rate'];
 
@@ -190,6 +189,10 @@ $db = mysqli_connect('127.0.0.1', 'root', '', 'meetm');
 
 $sql = "UPDATE user_data SET rating = $rating WHERE user_id = $userID";
 mysqli_query($db, $sql);
+    $link = "user.php?see=".$getV;
+    header("location: ". $link);
+};
+
 ?>
 
 
