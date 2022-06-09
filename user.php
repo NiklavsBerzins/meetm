@@ -1,6 +1,7 @@
 <?php
 session_start();
 $nick = $_SESSION['username'];
+
 ?>
 
 <!DOCTYPE html>
@@ -16,11 +17,7 @@ $nick = $_SESSION['username'];
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
-
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css" integrity="sha384-SI27wrMjH3ZZ89r4o+fGIJtnzkAnFs3E4qz9DIYioCQ5l9Rd/7UAa8DHcaL8jkWt" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.css">
-
-
+    <link rel="stylesheet" href="./styles/stars.css">
 </head>
 
 <body>
@@ -46,6 +43,7 @@ $nick = $_SESSION['username'];
         $interestSize = sizeof($interestArray);
 
         $x = 0;
+        $rating = 0;
     }
     ?>
 
@@ -107,23 +105,30 @@ $nick = $_SESSION['username'];
                         <label for="exampleInputEmail1">Profila novērtējums</label>
 
 
-                        <div class="container">
-                            <div class="row">
-                                <form method="post">
-                                    <div class="rateyo" id="rating" data-rateyo-rating="4" data-rateyo-num-stars="5" data-rateyo-score="3">
-                                    </div>
-                                    <div>
 
-                                        <input hidden type="tetx" name="user_id" value="<?php echo "$userID" ?>">
-                                    </div>
-                                    <div>
-                                        <input type="tetx" name="rating">
-                                        <br>
-                                        <button type="submit" name="submit">Rate</button>
-                                    </div>
-                            </div>
+                        <div>
+                            <input hidden type="tetx" name="user_id" id="user_id" value="<?php echo "$userID" ?>">
                         </div>
 
+
+
+
+                        <div class="center">
+                            <div class="stars">
+                                <input type="radio" id="five" name="rate" value="5">
+                                <label for="five"></label>
+                                <input type="radio" id="four" name="rate" value="4">
+                                <label for="four"></label>
+                                <input type="radio" id="three" name="rate" value="3">
+                                <label for="three"></label>
+                                <input type="radio" id="two" name="rate" value="2">
+                                <label for="two"></label>
+                                <input type="radio" id="one" name="rate" value="1">
+                                <label for="one"></label>
+                                <span class="result"></span>
+                                <button type="submit" name="submit">Rate</button>
+                            </div>
+                        </div>
 
 
 
@@ -178,8 +183,8 @@ $nick = $_SESSION['username'];
 
 
 <?php
-$userID = $_GET['user_id'];
-$rating = $_GET['rating'];
+$userID = $_REQUEST['user_id'];
+$rating = $_REQUEST['rate'];
 
 $db = mysqli_connect('127.0.0.1', 'root', '', 'meetm');
 
