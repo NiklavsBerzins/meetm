@@ -5,6 +5,7 @@ $username = $_SESSION['username'];
 
 
 <html>
+
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title> TOP lietotāji </title>
@@ -29,7 +30,7 @@ $username = $_SESSION['username'];
             <ul class="list-unstyled ml-4">
                 <li><a href="user_change.php"><img src="images/userIcon.png" class="img-thumbnail rounded-circle mx-auto d-block" style="width: 30%"></a></li>
                 <li>
-                    <p class="font-weight-bold font-italic text-center d-block"><?php echo"$username"; ?></p>
+                    <p class="font-weight-bold font-italic text-center d-block"><?php echo "$username"; ?></p>
                 </li>
                 <li><a class="font-weight-bold text-center text-success d-block" href="#">Iziet</a></li>
             </ul>
@@ -85,7 +86,7 @@ $username = $_SESSION['username'];
                                     <div class="p-2 bd-highlight" style="font-size: 12;"><strong class="text-success"><?php echo "$rating" ?> </strong></div>
                                 </div>
                             </div>
-                            <a href=user.php?see=<?php echo $user_id ?>">
+                            <a href=user.php?see=<?php echo $user_id ?>>
                                 <div class="p-2 bd-highlight">
                                     <div class="flex-column bd-highlight mb-3">
                                         <div class="p-2 bd-highlight"><img src="images/userIcon.png" class="img-fluid rounded" style="width: 50%"></div>

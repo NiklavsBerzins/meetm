@@ -22,10 +22,10 @@ $nick = $_SESSION['username'];
 <body>
     <?php
     if (isset($_GET['see'])) {
-        $getV = $_GET['see'];
+        $_SESSION['getSee'] = $_GET['see'];
         $db = mysqli_connect('127.0.0.1', 'root', '', 'meetm');
         $username = $_GET['see'];
-        $username = substr_replace($username, "", -1);
+        // $username = substr_replace($username, "", -1);
         $user_check_query = "SELECT * FROM users WHERE username='$username'LIMIT 1";
         $result = mysqli_query($db, $user_check_query);
         $user = mysqli_fetch_assoc($result);
@@ -181,16 +181,25 @@ $nick = $_SESSION['username'];
 
 
 <?php
-if(isset($_REQUEST['submit'])){
-$userID = $_REQUEST['user_id'];
-$rating = $_REQUEST['rate'];
+print_r($_SESSION['getSee']);
+if (isset($_REQUEST['submit'])) {
+    $userID = $_REQUEST['user_id'];
+    $rating = $_REQUEST['rate'];
 
-$db = mysqli_connect('127.0.0.1', 'root', '', 'meetm');
+    $db = mysqli_connect('127.0.0.1', 'root', '', 'meetm');
 
-$sql = "UPDATE user_data SET rating = $rating WHERE user_id = $userID";
-mysqli_query($db, $sql);
-    $link = "user.php?see=".$getV;
-    header("location: ". $link);
+    $sql = "UPDATE user_data SET rating = $rating WHERE user_id = $userID";
+    mysqli_query($db, $sql);
+    $link = "user.php?see=" . $_SESSION['getSee'];
+    print_r($link);
+
+    echo '<script type="text/javascript">';
+    echo 'window.location.href="' .  $link . '";';
+    echo '</script>';
+    echo '<noscript>';
+    echo '<meta http-equiv="refresh" content="0;url=' .  $link . '" />';
+    echo '</noscript>';
+    exit;
 };
 
 ?>
